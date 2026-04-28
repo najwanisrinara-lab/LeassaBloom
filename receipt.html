@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<title>Struk</title>
+
+	<style>
+		body {
+			background: #111;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.struk {
+			background: #fff;
+			width: 280px;
+			padding: 20px;
+			font-family: 'Courier New', monospace;
+			font-size: 13px;
+			color: #000;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		}
+
+		.logo {
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		.logo img {
+			width: 250px;
+			height: auto;
+		}
+
+		.struk h2 {
+			text-align: center;
+			margin: 5px 0;
+			font-size: 16px;
+			letter-spacing: 2px;
+		}
+
+		.line {
+			border-top: 1px dashed #000;
+			margin: 10px 0;
+		}
+
+		.text-center { text-align: center; }
+		.text-right { text-align: right; }
+
+		.item-row {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.btn-area {
+			text-align: center;
+			margin-top: 15px;
+		}
+
+		.btn {
+			padding: 6px 12px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 12px;
+		}
+
+		.btn-back {
+			background: #444;
+			color: white;
+		}
+
+		.btn-print {
+			background: pink;
+		}
+
+		.success {
+			color: green;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		/* Khusus saat print */
+		@media print {
+			body {
+				background: none;
+			}
+
+			.btn-area {
+				display: none;
+			}
+
+			.struk {
+				box-shadow: none;
+				border-radius: 0;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="struk">
+
+	<div class="logo">
+		<img src="logo.jpeg" alt="Logo">
+	</div>
+
+	<h2>Leassa Bloom</h2>
+	<p class="text-center">Receipt</p>
+
+	<div class="line"></div>
+
+	<p>Nama: <span id="nama"></span></p>
+	<p>HP: <span id="telp"></span></p>
+	<p>Alamat: <span id="alamat"></span></p>
+	<p>Pembayaran: <span id="payment"></span></p>
+
+	<div class="line"></div>
+
+	<div id="detail"></div>
+
+	<div class="line"></div>
+
+	<p><b>Total: Rp <span id="total"></span></b></p>
+	<p id="tanggal" class="text-center"></p>
+
+	<p class="text-center">Thank You For Blooming With Us</p>
+
+	<p class="success">✔ Payment Successful</p>
+
+	<div class="btn-area">
+		<button class="btn btn-back" onclick="history.back()">Kembali</button>
+		<button class="btn btn-print" onclick="window.print()">Print</button>
+	</div>
+
+</div>
+
+<script>
+// ambil data
+const nama = localStorage.getItem("nama");
+const telp = localStorage.getItem("telp");
+const alamat = localStorage.getItem("alamat");
+const payment = localStorage.getItem("payment");
+
+const produk = localStorage.getItem("produk");
+const harga = Number(localStorage.getItem("harga"));
+const jumlah = Number(localStorage.getItem("jumlah"));
+
+// tampilkan data
+document.getElementById("nama").innerText = nama || "-";
+document.getElementById("telp").innerText = telp || "-";
+document.getElementById("alamat").innerText = alamat || "-";
+document.getElementById("payment").innerText = payment || "-";
+
+// format rupiah
+function formatRupiah(angka) {
+	return angka.toLocaleString("id-ID");
+}
+
+// tampilkan item
+let detailHTML = `
+<div class="item-row">
+	<span>${produk} x${jumlah}</span>
+	<span>Rp ${formatRupiah(harga * jumlah)}</span>
+</div>
+`;
+
+document.getElementById("detail").innerHTML = detailHTML;
+
+// total
+const total = harga * jumlah;
+document.getElementById("total").innerText = formatRupiah(total);
+
+// tanggal
+const now = new Date();
+document.getElementById("tanggal").innerText =
+	now.toLocaleDateString("id-ID") + "\n" +
+	now.toLocaleTimeString("id-ID");
+</script>
+
+</body>
+</html>

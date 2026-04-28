@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Bouquet</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #5E3849;
+			color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 40px;
+            color: white;
+			text-shadow: 2px 2px 8px rgba(0,0,0,0.4);	
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px;
+			color: black;
+        }
+		
+		.desc {
+			font-size: 13px;
+			color: #555;
+			padding: 0 15px;
+			margin-bottom: 8px;
+		}
+		
+        .price {
+            color: maroon;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-back {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: #241111;
+            color: white;
+            text-decoration: none;
+            width: fit-content;
+        }
+		
+		.btn-buy {
+			display: inline-block;
+			margin-bottom: 10px;
+			padding: 10px 20px;
+			border-radius: 20px;
+			border: none;
+			background: #5E3849;
+			color: white;
+			cursor: pointer;
+			font-weight: 500;
+			transition: 0.3s;
+		}
+
+		.btn-buy:hover {
+			background: #e60073;
+			transform: scale(1.05);
+		}
+    </style>
+</head>
+
+<body>
+
+<h1>Graduation Flower Collection</h1>
+
+<div class="product-grid">
+
+    <div class="card">
+        <img src="satugradu.jpg">
+        <h3>Type 1</h3>
+		<p class="desc">Bouquet graduation adalah rangkaian bunga yang dirancang khusus sebagai hadiah ucapan selamat kelulusan.</p>
+        <p class="price">Rp 200.000</p>
+		<a href="detailsatugradu.html" class="btn-buy">Buy</a>
+    </div>	
+
+    <div class="card">
+        <img src="duagradu.jpg">
+        <h3>Type 2</h3>
+		<p class="desc">Bouquet graduation adalah rangkaian bunga yang dirancang khusus sebagai hadiah ucapan selamat kelulusan.</p>
+        <p class="price">Rp 200.000</p>
+		<a href="detailduagradu.html" class="btn-buy">Buy</a>
+    </div>
+
+    <div class="card">
+        <img src="tigagradu.jpg">
+        <h3>Type 3</h3>
+		<p class="desc">Bouquet graduation adalah rangkaian bunga yang dirancang khusus sebagai hadiah ucapan selamat kelulusan.</p>
+        <p class="price">Rp 200.000</p>
+		<a href="detailtigagradu.html" class="btn-buy">Buy</a>
+    </div>
+
+    <div class="card">
+        <img src="empatgradu.jpg">
+        <h3>Type 4</h3>
+		<p class="desc">Bouquet graduation adalah rangkaian bunga yang dirancang khusus sebagai hadiah ucapan selamat kelulusan.</p>
+        <p class="price">Rp 200.000</p>
+		<a href="detailempatgradu.html" class="btn-buy">Buy</a>
+    </div>
+
+    <div class="card">
+        <img src="limagradu.jpg">
+        <h3>Type 5</h3>
+		<p class="desc">Bouquet graduation adalah rangkaian bunga yang dirancang khusus sebagai hadiah ucapan selamat kelulusan.</p>
+        <p class="price">Rp 200.000</p>
+		<a href="detaillimagradu.html" class="btn-buy">Buy</a>
+    </div>
+
+</div>
+
+<a href="#" onclick="history.back()" class="btn-back">← Kembali</a>
+
+</body>
+</html>
